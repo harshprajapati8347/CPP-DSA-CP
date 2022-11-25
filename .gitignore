@@ -4,3 +4,15 @@
 *.exe
 *.json
 *.bin
+*.o
+*.so
+*.a
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.egg
+*.egg-info
+*.egg-link
+*.egg-tmp
