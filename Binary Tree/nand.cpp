@@ -1,5 +1,5 @@
 // Set Intersection
-// Programming challenge description : Find the intersection of two sorted lists of integers.Input : Your program should read lines of text from standard input.Each line will contain two comma separated lists of integers in ascending order,
+// Find the intersection of two sorted lists of integers.Input : Your program should read lines of text from standard input.Each line will contain two comma separated lists of integers in ascending order,
 //     one pair of lists per line.The lists are separated by a semicolon.Output : For each pair of input lists, print to standard output their sorted intersection in ascending order, comma separated, one intersection per line.
 // Input  1, 2, 3, 4;4, 5, 6
 // Output 4
