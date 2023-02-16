@@ -1,42 +1,42 @@
-#include <bits/stdc++.h>
+// Sum of Subarray
+
+#include <iostream>
 using namespace std;
+
+class Solution
+{
+public:
+    int subArraySum(int arr[], int n, int sum)
+    {
+        int curr_sum = arr[0], start = 0, i;
+        for (i = 1; i <= n; i++)
+        {
+            while (curr_sum > sum && start < i - 1)
+            {
+                curr_sum = curr_sum - arr[start];
+                start++;
+            }
+            if (curr_sum == sum)
+            {
+                cout << "Sum found between indexes " << start << " and " << i - 1;
+                return 1;
+            }
+            if (i < n)
+                curr_sum = curr_sum + arr[i];
+        }
+        cout << "No subarray found";
+        return 0;
+    }
+};
 
 int main()
 {
-    int s, n;
-    cin >> s >> n;
-    int a[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> a[i];
-    }
-    int i = 0, j = 0, st = -1, en = -1, sum = 0;
-    while (j < n && sum + a[j] <= s)
-    {
-        sum += a[j];
-        j++;
-    }
-    if (sum == s)
-    {
-        cout << i + 1 << " " << j << endl;
-        return 0;
-    }
-    while (j < n)
-    {
-        sum += a[j];
-        while (sum > s)
-        {
-            sum -= a[i];
-            i++;
-        };
-        if (sum = s)
-        {
-            st = i + 1;
-            en = j + 1;
-            break;
-        }
-        j++;
-    }
-    cout << st << " " << en << endl;
+
+    int arr[] = {15, 2, 4, 8, 9, 5, 10, 23};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int sum = 23;
+    Solution s;
+    s.subArraySum(arr, n, sum);
+
     return 0;
 }

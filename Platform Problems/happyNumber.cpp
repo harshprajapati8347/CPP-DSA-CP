@@ -17,6 +17,12 @@
 // 62 + 82 = 100
 // 12 + 02 + 02 = 1
 
+//! Algorithm:
+// 1. Take the number and find the sum of the squares of its digits.
+// 2. If the sum is 1, then the number is a happy number.
+// 3. If the sum is 4, then the number is not a happy number.
+// 4. If the sum is neither 1 nor 4, then repeat the process from step 1.
+
 #include<iostream>
 using namespace std;
 

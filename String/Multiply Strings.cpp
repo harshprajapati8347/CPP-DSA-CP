@@ -1,8 +1,13 @@
-// Important String Program
-// TODO 43. Multiply Strings
+// ! 43. Multiply Strings
 // Input: num1 = "2", num2 = "3"
 // Output: "6"
-#include<iostream>
+//! Psuedo Code:
+// 1. Multiply each digit of num1 with each digit of num2
+// 2. Add the result of each multiplication
+// 3. Add the carry to the next digit
+// 4. Reverse the result
+
+#include <iostream>
 using namespace std;
 
 class Solution
@@ -10,26 +15,21 @@ class Solution
 public:
     string multiply(string num1, string num2)
     {
-        int n1 = num1.size(); 
-        int n2 = num2.size();
-        string res(n1 + n2, '0'); 
-        for (int i = n1 - 1; i >= 0; i--) 
-        {
-            int carry = 0; 
-            for (int j = n2 - 1; j >= 0; j--) 
-            { 
-                int temp = (res[i + j + 1] - '0') + (num1[i] - '0') * (num2[j] - '0') + carry; // res[i + j + 1] is the last digit of the result, res[i + j] is the first digit of the result
-                res[i + j + 1] = temp % 10 + '0';
-                carry = temp / 10;
+        // num1Size (3)+ num2Size (3) <=6 && initializing with val 0
+        string s(num1.length() + num2.length(), '0');
+
+        for (int i = num1.length() - 1; i >= 0; --i)
+            for (int j = num2.length() - 1; j >= 0; --j)
+            {
+                // num1[i] -'0' => logic of converting string into integer
+                const int mult = (num1[i] - '0') * (num2[j] - '0');
+                const int sum = mult + (s[i + j + 1] - '0');
+                s[i + j] += sum / 10;
+                s[i + j + 1] = '0' + sum % 10;
             }
-            res[i] += carry; // res[i] is the first digit of the result
-        }
-        size_t startpos = res.find_first_not_of("0"); // find the first digit that is not 0
-        if (string::npos != startpos)
-        {
-            return res.substr(startpos);
-        }
-        return "0";
+
+        const int i = s.find_first_not_of('0'); 
+        return i == -1 ? "0" : s.substr(i);
     }
 };
 
@@ -39,6 +39,6 @@ int main()
     string num1 = "123";
     string num2 = "456";
     cout << s.multiply(num1, num2) << endl;
-    
+
     return 0;
 }

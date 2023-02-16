@@ -12,11 +12,13 @@ class Solution{
     
 public:
     vector<int> preorder(Node* root){
-        vector<int> ans; // vector to store the final answer
-        if(root == NULL) // if the root is NULL => return the empty vector
+        vector<int> ans;
+        if(root == NULL)
             return ans;
-        stack<Node*> s; // stack of Node
+        // stack of Node
+        stack<Node*> s;
         s.push(root);
+        
         while(!s.empty()){
             Node* curr = s.top(); // get the top element of the stack
             s.pop(); // pop the top element

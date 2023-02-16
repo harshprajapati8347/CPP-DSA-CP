@@ -2,6 +2,14 @@
 // Given the head of a linked list, remove the nth node from the end of the list and return its head.
 // Input: head = [1,2,3,4,5], n = 2
 // Output: [1,2,3,5]
+// Algorithm: Two Pointers
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+// 1. Count the number of nodes in the linked list
+// 2. If the node to be deleted is the first node, then head = head->next
+// 3. If the node to be deleted is not the first node, then count - n - 1 is the position of the node before the node to be deleted
+// 4. temp->next = temp->next->next
+
 
 #include <iostream>
 using namespace std;
@@ -32,7 +40,7 @@ public:
         }
         //! Logic
         temp = head;
-        for (int i = 0; i < count - n - 1; i++)
+        for (int i = 0; i < count - n - 1; i++) // count - n - 1 is the position of the node before the node to be deleted
         {
             temp = temp->next;
         }

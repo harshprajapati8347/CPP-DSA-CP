@@ -10,6 +10,18 @@
 // Input: head = [1,2,3,4,5]
 // Output: [1,3,5,2,4]
 
+//! Algorithm:
+// 1. Create two pointers odd and even
+// 2. Create a new pointer evenHead to store the head of even list
+// 3. Traverse the list till even->next != NULL
+// 4. odd->next = even->next
+// 5. odd = odd->next
+// 6. even->next = odd->next
+// 7. even = even->next
+// 8. odd->next = evenHead
+// 9. return head
+
+
 #include<iostream>
 using namespace std;
 

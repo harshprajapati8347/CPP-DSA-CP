@@ -46,6 +46,8 @@ public:
         
         // Recursively sort the two halves
         ListNode *left = sortList(head);
+        // What Happens?
+        // 1. left = sortList(head) -> left = sortList(-1) -> left = sortList(5) -> left = sortList(3) -> left = sortList(4) -> left = sortList(0) -> left = NULL
         ListNode *right = sortList(slow); 
         
         return merge(left, right); // Merge the two sorted halves
@@ -54,12 +56,12 @@ public:
     ListNode* merge(ListNode *left, ListNode *right)
     {
         ListNode *result = NULL; // Base case
-        
+        // If either left or right is NULL, return the other
         if (left == NULL)
             return right;
         else if (right == NULL)
             return left;
-        
+        // 4<2 no then else
         if (left->val <= right->val) // Pick either left or right and recur
         {
             result = left;

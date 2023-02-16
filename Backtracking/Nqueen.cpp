@@ -79,21 +79,3 @@ int main()
     } 
     return 0;
 }
-
-// Output:
-// Enter the number of queens: 4
-// 1 0 0 0
-// 0 1 0 0
-// 0 0 1 0
-// 0 0 0 1
-// Enter the number of queens: 5
-// No solution
-// Enter the number of queens: 6
-// 1 0 0 0 0 0
-// 0 1 0 0 0 0
-// 0 0 1 0 0 0
-// 0 0 0 1 0 0
-// 0 0 0 0 1 0
-// 0 0 0 0 0 1
-// Enter the number of queens: 7
-// No solution

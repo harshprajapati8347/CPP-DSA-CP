@@ -3,6 +3,13 @@
 // Input: head = [1,2,2,1]
 // Output: true
 
+//! Algorithm:
+// 1. Find the middle node of the linked list.
+// 2. Reverse the second half of the linked list.
+// 3. Compare the first half and the second half of the linked list.
+// 4. Restore the linked list.
+// 5. Return the result.
+
 #include <iostream>
 using namespace std;
 
@@ -22,10 +29,10 @@ public:
         ListNode *curr = head;
         while (curr != NULL)
         {
-            ListNode *next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
+            ListNode *next = curr->next; // store the next node
+            curr->next = prev;          // reverse the current node
+            prev = curr;               // move the prev pointer
+            curr = next;          // move the curr pointer
         }
         return prev;
     }
@@ -33,18 +40,20 @@ public:
     {
         ListNode *slow = head;
         ListNode *fast = head;
-        while (fast != NULL && fast->next != NULL) // find the middle node
+        // find the middle node
+        while (fast != NULL && fast->next != NULL) 
         {
             slow = slow->next;
             fast = fast->next->next;
-        }
-        if (fast != NULL)
+        } 
+        // slow is the middle node
+        if (fast != NULL) // for odd number of nodes
         {
-            slow = slow->next;
+            slow = slow->next; // skip the middle node
         }
-        slow = reverse(slow);
-        fast = head;
-        while (slow != NULL)
+        slow = reverse(slow); // reverse the second half
+        fast = head; // reset the fast pointer to head
+        while (slow != NULL) // compare the first half and the second half
         {
             if (slow->val != fast->val)
             {
